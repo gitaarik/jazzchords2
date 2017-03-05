@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -166,7 +166,7 @@ function isBuffer(b) {
 // ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-var util = __webpack_require__(7);
+var util = __webpack_require__(9);
 var hasOwn = Object.prototype.hasOwnProperty;
 var pSlice = Array.prototype.slice;
 var functionsHaveNames = (function () {
@@ -606,7 +606,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Chart = exports.Chart = function () {
+var Chart = function () {
     function Chart(title) {
         _classCallCheck(this, Chart);
 
@@ -625,7 +625,84 @@ var Chart = exports.Chart = function () {
     return Chart;
 }();
 
-var Section = exports.Section = function () {
+exports.default = Chart;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Chord = function Chord(note, type) {
+    _classCallCheck(this, Chord);
+
+    this.note = note;
+    this.type = type;
+};
+
+exports.default = Chord;
+var NOTE_C = exports.NOTE_C = 'C';
+var CHORD_TYPE_SEVEN = exports.CHORD_TYPE_SEVEN = '7';
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Measure = function () {
+    function Measure(type) {
+        _classCallCheck(this, Measure);
+
+        this.type = type;
+    }
+
+    _createClass(Measure, [{
+        key: 'setChords',
+        value: function setChords(chords) {
+            this.chords = chords;
+        }
+    }]);
+
+    return Measure;
+}();
+
+exports.default = Measure;
+var MEASURE_TYPE_4 = exports.MEASURE_TYPE_4 = '4';
+var MEASURE_TYPE_2_2 = exports.MEASURE_TYPE_2_2 = '2-2';
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Section = function () {
     function Section() {
         _classCallCheck(this, Section);
 
@@ -642,43 +719,10 @@ var Section = exports.Section = function () {
     return Section;
 }();
 
-var Measure = exports.Measure = function () {
-    function Measure() {
-        _classCallCheck(this, Measure);
-    }
-
-    _createClass(Measure, [{
-        key: "setChords",
-        value: function setChords(chords) {
-            this.chords = chords;
-        }
-    }]);
-
-    return Measure;
-}();
-
-var Chord = exports.Chord = function Chord(note, type) {
-    _classCallCheck(this, Chord);
-
-    this.note = note;
-    this.type = type;
-};
+exports.default = Section;
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var NOTE_C = exports.NOTE_C = 'C';
-var CHORD_TYPE_SEVEN = exports.CHORD_TYPE_SEVEN = '7';
-
-/***/ }),
-/* 4 */
+/* 6 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -864,7 +908,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports) {
 
 if (typeof Object.create === 'function') {
@@ -893,7 +937,7 @@ if (typeof Object.create === 'function') {
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = function isBuffer(arg) {
@@ -904,7 +948,7 @@ module.exports = function isBuffer(arg) {
 }
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -1432,7 +1476,7 @@ function isPrimitive(arg) {
 }
 exports.isPrimitive = isPrimitive;
 
-exports.isBuffer = __webpack_require__(6);
+exports.isBuffer = __webpack_require__(8);
 
 function objectToString(o) {
   return Object.prototype.toString.call(o);
@@ -1476,7 +1520,7 @@ exports.log = function() {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = __webpack_require__(5);
+exports.inherits = __webpack_require__(7);
 
 exports._extend = function(origin, add) {
   // Don't do anything if add isn't an object
@@ -1494,10 +1538,10 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(4)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6)))
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1509,27 +1553,39 @@ var _assert2 = _interopRequireDefault(_assert);
 
 var _chart = __webpack_require__(2);
 
-var _constants = __webpack_require__(3);
+var _chart2 = _interopRequireDefault(_chart);
+
+var _section = __webpack_require__(5);
+
+var _section2 = _interopRequireDefault(_section);
+
+var _measure = __webpack_require__(4);
+
+var _measure2 = _interopRequireDefault(_measure);
+
+var _chord = __webpack_require__(3);
+
+var _chord2 = _interopRequireDefault(_chord);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 describe('Chart', function () {
 
     it('should create a Chart instance', function () {
-        var chart = new _chart.Chart('All of me');
+        var chart = new _chart2.default('All of me');
         (0, _assert2.default)(chart);
         _assert2.default.equal(chart.title, 'All of me');
     });
 
     it('should create a section', function () {
-        var section = new _chart.Section();
+        var section = new _section2.default();
         (0, _assert2.default)(section);
     });
 
     it('should add a section', function () {
 
-        var chart = new _chart.Chart('All of me');
-        var section = new _chart.Section();
+        var chart = new _chart2.default('All of me');
+        var section = new _section2.default();
 
         chart.addSection(section);
 
@@ -1537,15 +1593,21 @@ describe('Chart', function () {
         _assert2.default.equal(chart.sections[0], section);
     });
 
-    it('should create a measure', function () {
-        var measure = new _chart.Measure();
+    it('should create a measure with 1 chord', function () {
+        var measure = new _measure2.default(_measure.MEASURE_TYPE_4);
         (0, _assert2.default)(measure);
+        (0, _assert2.default)(measure.type, '4');
+    });
+
+    it('should create a measure with 2 chords', function () {
+        var measure = new _measure2.default(_measure.MEASURE_TYPE_2_2);
+        (0, _assert2.default)(measure.type, '2-2');
     });
 
     it('should add a measure', function () {
 
-        var section = new _chart.Section();
-        var measure = new _chart.Measure();
+        var section = new _section2.default();
+        var measure = new _measure2.default();
 
         section.addMeasure(measure);
 
@@ -1555,7 +1617,7 @@ describe('Chart', function () {
 
     it('should create a chord', function () {
 
-        var chord = new _chart.Chord(_constants.NOTE_C, _constants.CHORD_TYPE_SEVEN);
+        var chord = new _chord2.default(_chord.NOTE_C, _chord.CHORD_TYPE_SEVEN);
 
         (0, _assert2.default)(chord);
         _assert2.default.equal(chord.note, 'C');
@@ -1564,8 +1626,8 @@ describe('Chart', function () {
 
     it('should add a chord', function () {
 
-        var measure = new _chart.Measure();
-        var chord = new _chart.Chord();
+        var measure = new _measure2.default();
+        var chord = new _chord2.default();
 
         measure.setChords([chord]);
     });

@@ -1,6 +1,8 @@
 import assert from 'assert'
-import {Chart, Section, Measure, Chord} from './chart'
-import {NOTE_C, CHORD_TYPE_SEVEN} from './constants'
+import Chart from './chart'
+import Section from './section'
+import Measure, {MEASURE_TYPE_4, MEASURE_TYPE_2_2} from './measure'
+import Chord, {NOTE_C, CHORD_TYPE_SEVEN} from './chord'
 
 
 describe('Chart', () => {
@@ -28,9 +30,15 @@ describe('Chart', () => {
 
 	})
 
-    it('should create a measure', () => {
-        const measure = new Measure()
+    it('should create a measure with 1 chord', () => {
+        const measure = new Measure(MEASURE_TYPE_4)
         assert(measure)
+        assert(measure.type, '4')
+    })
+
+    it('should create a measure with 2 chords', () => {
+        const measure = new Measure(MEASURE_TYPE_2_2)
+        assert(measure.type, '2-2')
     })
 
     it('should add a measure', () => {
